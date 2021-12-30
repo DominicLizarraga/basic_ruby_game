@@ -1,12 +1,37 @@
-def period
-  Time.new.strftime("%B %Y")
+class Project
+
+  attr_accessor :name, :funding
+
+  def initialize(name, funding=0, goal=3000)
+    @name = name
+    @funding = funding
+    @goal = goal
+  end
+
+  def remaining
+    @goal - @funding
+  end
+
+  def get
+    @funding += 25
+    "#{@name} got more funds!"
+  end
+
+  def loose
+    @funding -= 15
+    "#{@name} lost some funds!"
+  end
+
+  def to_s
+    "Project #{@name} has #{@funding} in funding towards a goal of #{@goal}. Remaining is: #{remaining}"
+  end
+
 end
 
-
-def fund_project(project_name, fund=150)
-  "The project: #{project_name} received a funding of #{fund} for the next period: #{period}"
-end
-
-puts fund_project("NFT_collective")
-puts fund_project("Elder help", 500)
-puts fund_project("Elder dogs", 900)
+project2 = Project.new("XYZ", 60)
+puts project2.name
+project2.name = "LMN"
+puts project2.name
+puts project2.funding
+puts project2.remaining
+puts project2
