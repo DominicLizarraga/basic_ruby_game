@@ -28,10 +28,23 @@ class Project
 
 end
 
-project2 = Project.new("XYZ", 60)
-puts project2.name
-project2.name = "LMN"
-puts project2.name
-puts project2.funding
-puts project2.remaining
-puts project2
+projects = %w(XYZ LMN)
+
+projects[projects.length - 1] = "123"
+puts "There are #{projects.size} projects in the game:"
+
+
+projects.each do |project|
+  funding = rand(10..30)
+  p = Project.new(project, funding)
+  puts p
+  puts p.get
+  puts p.loose
+end
+
+# There are 3 players in the game:
+# I'm Moe with a health of 100 and a score of 103.
+# I'm Larry with a health of 60 and a score of 65.
+# I'm Curly with a health of 125 and a score of 130.
+
+

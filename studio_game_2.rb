@@ -3,10 +3,9 @@ class Player
   attr_accessor :name, :score
   attr_reader :health
 
-  def initialize(name, health=60, score)
+  def initialize(name, health=60)
     @name = name.capitalize
     @health = health
-     @score = score
   end
 
   def score
@@ -30,12 +29,34 @@ class Player
 
 end
 
+players = %w(Moe Larry Curly)
+
+players[players.length - 1] = "shemp"
+puts "There are #{players.size} players in the game:"
 
 
-player2 = Player.new("larry", 60)
-puts player2.name
-player2.name = "Lawrence"
-puts player2.name
-puts player2.health
-puts player2.score
-puts player2
+players.each do |player|
+  p = Player.new(player)
+  puts p
+  puts p.w00t
+  puts p.blam
+end
+
+# There are 3 players in the game:
+# I'm Moe with a health of 100 and a score of 103.
+# I'm Larry with a health of 60 and a score of 65.
+# I'm Curly with a health of 125 and a score of 130.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
