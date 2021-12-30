@@ -1,51 +1,26 @@
+name1 = "larry"
+health1 = 60
 
-# def hour
-#   hour = Time.new.strftime('%T')
-# end
+puts "#{name1.capitalize} has a health of #{health1}."
 
-# def say_hello(name, health=100)
-#   "I'm #{name.capitalize} with a health of #{health}as of #{hour}"
-# end
+name2 = "curry"
+health2 = 125
 
-# puts say_hello("larry", 60)
-# puts say_hello("curly", 125)
-# puts say_hello("moe")
-# puts say_hello("shem", 90)
-require_relative 'game'
-require_relative 'clumsy_player'
-require_relative 'berserk_player'
+puts "#{name2.upcase} has a health of #{health2}."
 
+name3 = "moe"
+health3 = 100
 
+title = "#{name3.capitalize} has a health of #{health3}".center(50, '*')
 
-player1 = Player.new("moe")
-player2 = Player.new("larry", 60)
-player3 = Player.new("curly", 125)
-player4 = ClumsyPlayer.new("klutz", 105)
-player5 = BerserkPlayer.new("berserker", 50)
+puts title
 
+name4 = "shemp"
+health4 = 90
 
-knuckleheads = Game.new("Knuckleheads")
-knuckleheads.load_players(ARGV.shift || "players.csv")
-knuckleheads.save_high_scores
-knuckleheads.add_player(player4)
-knuckleheads.add_player(player5)
+puts "#{name4.capitalize}".ljust(20, '.') + "#{health4}"
 
+current_time = Time.new
 
-
-loop do
-  puts "\nHow many game rounds? ('quit' to exit)"
-  answer = gets.chomp.downcase
-  case answer
-  when /^\d+$/
-    knuckleheads.play(answer.to_i)
-  when "quit", "exit"
-    knuckleheads.print_stats
-    break
-  else
-    puts "\n type a number or('quit' to exit)"
-  end
-end
-
-
-
+puts current_time.strftime("%A, %d %b %Y %l:%M %p")
 
