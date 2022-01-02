@@ -31,3 +31,18 @@ def sorted_pairs(array)
   end
   result
 end
+
+
+# hash exercise 
+
+letters = {"c" => 3, "e" => 1, "l" => 1, "n" => 1, "t" => 1, "x" => 8, "y" => 4}
+
+score = 0
+
+"excellently".each_char {|letter| score += letters[letter] }
+
+point_totals = Hash.new(0)
+
+"excellently".each_char {|letter| point_totals[letter] += letters[letter] }
+
+point_totals.values.reduce(0, :+)
