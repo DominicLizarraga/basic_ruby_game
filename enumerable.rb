@@ -46,3 +46,32 @@ point_totals = Hash.new(0)
 "excellently".each_char {|letter| point_totals[letter] += letters[letter] }
 
 point_totals.values.reduce(0, :+)
+
+# custom iterators
+
+# yield usage
+
+def n_times n
+  1.upto(n) do |count|
+    yield count
+  end
+end
+
+
+
+n_times(8) do |n|
+  puts "#{n} situps"
+  puts "#{n} pushups"
+  puts "#{n} chinups"
+end
+
+
+# it should print something like this
+
+# 1 situps
+# 1 pushups
+# 1 chinups
+# ...
+# 5 situps
+# 5 pushups
+# 5 chinups
